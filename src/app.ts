@@ -11,6 +11,12 @@ import expressValidator from "express-validator";
 import bluebird from "bluebird";
 import { SESSION_SECRET } from "./util/secrets";
 
+// Get a datadog connection
+import metrics from "datadog-metrics";
+metrics.init({ prefix: "NSCU_talk." });
+
+console.log("Starting app");
+metrics.increment("app.start");
 
 // Load environment variables from .env file, where API keys and passwords are configured
 dotenv.config({ path: ".env.example" });
