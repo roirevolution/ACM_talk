@@ -2,3 +2,22 @@ extends layout
 
 block content
   h1 New order
+
+  form(action='/save_order')
+    fieldset
+      legend Standard Toppings
+      img(src='/images/onions.jpg' height=100)
+      input(type="checkbox" name="onions")
+      img(src='/images/mushroom.jpeg' height=100)
+      input(type="checkbox" name="mushrooms")
+      img(src='/images/green_peppers.jpeg' height=100)
+      input(type="checkbox" name="green_peppers")
+      img(src='/images/pepperoni.jpeg' height=100)
+      input(type="checkbox" name="pepperoni")
+      img(src='/images/explosive mushroom.svg' height=100)
+      input(type="checkbox" name="explosive_mushrooms")
+    fieldset
+      p Other:
+      input(type="text" name="other")
+    p
+      input(type="submit")
