@@ -23,7 +23,7 @@ dotenv.config({ path: ".env.example" });
 
 // Controllers (route handlers)
 import * as homeController from "./controllers/home";
-import * as apiController from "./controllers/api";
+import * as orderController from "./controllers/order";
 import * as contactController from "./controllers/contact";
 
 // Create Express server
@@ -58,8 +58,8 @@ app.get("/contact", contactController.getContact);
 app.post("/contact", contactController.postContact);
 
 /**
- * API examples routes.
+ *  Ordering pizza starter route
  */
-app.get("/api", apiController.getApi);
+app.get("/order", orderController.newOrder);
 
 export default app;
