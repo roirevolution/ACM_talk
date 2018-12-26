@@ -61,5 +61,6 @@ app.post("/contact", contactController.postContact);
  *  Ordering pizza starter route
  */
 app.get("/order", orderController.newOrder);
+app.get("/save_order", orderController.saveOrder);
 
 export default app;
