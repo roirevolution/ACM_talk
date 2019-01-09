@@ -16,8 +16,9 @@ function newOrder (req: Request, res: Response) {
 }
 
 function saveOrder (req: Request, res: Response) {
-  // get the
+  console.log(`Parameters: #{req.params}`);
   res.render("order_saved", {
-    title: "Saved"
+    title: "Saved",
+    text: "there"
   });
 }
