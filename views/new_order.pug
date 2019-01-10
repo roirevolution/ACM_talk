@@ -1,28 +1,33 @@
 extends layout
 
 block content
+  -
+    // List compiled from https://www.dominos.com/en/about-pizza/toppings/pizza-toppings/
+    topping_img_map = {
+      "Pepperoni": "/images/pepperoni.jpeg",
+      "Mushrooms": "/images/mushroom.jpeg",
+      "Onions": "/images/onions.jpg",
+      "Sausage": "/images/onions.jpg",
+      "Bacon": "/images/onions.jpg",
+      "Extra Cheese": "/images/onions.jpg",
+      "Black Olives": "/images/onions.jpg",
+      "Green Peppers": "/images/green_peppers.jpeg",
+      "Pineapple": "/images/onions.jpg",
+      "Spinach": "/images/onions.jpg",
+      "Spicy Mushrooms": "/images/explosive mushroom.svg"
+    };
   h1 New order
 
   form(action='/save_order')
     fieldset
-      legend Standard Toppings
-      img(src='/images/onions.jpg' height=100)
-      input(type="checkbox" name="onions")
-      br
-      img(src='/images/mushroom.jpeg' height=100)
-      input(type="checkbox" name="mushrooms")
-      br
-      img(src='/images/green_peppers.jpeg' height=100)
-      input(type="checkbox" name="green_peppers")
-      br
-      img(src='/images/pepperoni.jpeg' height=100)
-      input(type="checkbox" name="pepperoni")
-      br
-      img(src='/images/explosive mushroom.svg' height=100)
-      input(type="checkbox" name="explosive_mushrooms")
-      br
-    fieldset
-      legend Other toppings:
-      input(type="text" name="other")
+    legend Available Toppings
+      each image, topping in topping_img_map
+        p= topping
+        console.log(topping, image)
+        input(type="checkbox" name=topping id=`${topping}_input`)
+        label(for=`${topping}_input`)
+          img(src=image+"" height=100 width=100)
+        br
     fieldset
       input(type="submit")
+
