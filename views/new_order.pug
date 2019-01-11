@@ -18,16 +18,24 @@ block content
     };
   h1 New order
 
-  form(action='/save_order')
-    fieldset
+  form(action='/save_order' method='POST')
+    fieldset()
     legend Available Toppings
-      each image, topping in topping_img_map
-        p= topping
-        console.log(topping, image)
-        input(type="checkbox" name=topping id=`${topping}_input`)
-        label(for=`${topping}_input`)
-          img(src=image+"" height=100 width=100)
-        br
+      .grid-container
+        each image, topping in topping_img_map
+          .grid-item
+            //- p= topping
+            input(type="checkbox" name=topping id=`${topping}_input`)
+            label(for=`${topping}_input`)
+              img(src=image+"" height=100 width=100)
+    fieldset
+    legend Delivery Information
+      div
+        label(for="name_input") Name for the order&nbsp;
+        input(type="text" name="name" id="name_input")
+      div
+        label(for="address_input") Delivery Address&nbsp;
+        input(type="text" name="address" id="address_input")
     fieldset
       input(type="submit")
 

@@ -16,9 +16,26 @@ function newOrder (req: Request, res: Response) {
 }
 
 function saveOrder (req: Request, res: Response) {
-  console.log(`Parameters: #{req.params}`);
+  const body = req.body;
+  addToOrders(toppingsFrom(body), body.name, body.address);
   res.render("order_saved", {
     title: "Saved",
     text: "there"
   });
 }
+
+function toppingsFrom(body: Object): Array<string> {
+  return (Object.keys(body).filter((t) => validTopping(t))).slice(0, 3);
+}
+
+function validTopping(topping: string): boolean {
+  return topping != "name" && topping != "address";
+}
+
+function addToOrders(toppings: Array<string>, name = "Matt", address = "4401 Atlantic Ave") {
+  const orderId = toppings.sort().join(",");
+  orders.set(orderId, {name, address});
+  console.log(orders);
+}
+
+const orders = new Map();
