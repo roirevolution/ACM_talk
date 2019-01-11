@@ -29,5 +29,13 @@ block content
           img(src=image+"" height=100 width=100)
         br
     fieldset
+    legend Delivery Information
+      div
+        label(for="name_input") Name for the order&nbsp;
+        input(type="text" name="name" id="name_input")
+      div
+        label(for="address_input") Delivery Address&nbsp;
+        input(type="text" name="address" id="address_input")
+    fieldset
       input(type="submit")
 
