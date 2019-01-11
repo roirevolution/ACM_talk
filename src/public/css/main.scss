@@ -68,3 +68,23 @@ textarea {
 .fa {
   margin-right: 6px;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-evenly;
+}
+
+.grid-item {
+  display: inline-grid;
+  //border: 1px solid red;
+  input[type='checkbox']{
+    display: none
+  }
+  label{
+    border: 3px transparent solid;
+  }
+  input:checked ~ label{
+    border: 3px blue solid;
+  }
+}
