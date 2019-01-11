@@ -18,7 +18,7 @@ block content
     };
   h1 New order
 
-  form(action='/save_order')
+  form(action='/save_order' method='POST')
     fieldset
     legend Available Toppings
       each image, topping in topping_img_map

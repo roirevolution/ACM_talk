@@ -16,9 +16,17 @@ function newOrder (req: Request, res: Response) {
 }
 
 function saveOrder (req: Request, res: Response) {
-  console.log(`Parameters: #{req.params}`);
+  addToOrders(Object.keys(req.body));
   res.render("order_saved", {
     title: "Saved",
     text: "there"
   });
 }
+
+function addToOrders(toppings: Array<string>, name = "bob") {
+  const orderId = toppings.sort().join(",");
+  orders.set(orderId, name);
+  console.log(orders);
+}
+
+const orders = new Map();
