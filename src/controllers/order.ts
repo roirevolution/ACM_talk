@@ -25,7 +25,7 @@ function saveOrder (req: Request, res: Response) {
 }
 
 function toppingsFrom(body: Object): Array<string> {
-  return Object.keys(body).filter((t) => validTopping(t)) ;
+  return (Object.keys(body).filter((t) => validTopping(t))).slice(0, 3);
 }
 
 function validTopping(topping: string): boolean {
