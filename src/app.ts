@@ -22,9 +22,7 @@ metrics.increment("app.start");
 dotenv.config({ path: ".env.example" });
 
 // Controllers (route handlers)
-import * as homeController from "./controllers/home";
 import * as orderController from "./controllers/order";
-import * as contactController from "./controllers/contact";
 
 // Create Express server
 const app = express();
@@ -54,11 +52,9 @@ app.use(
  * Primary app routes.
  */
 app.get("/", orderController.newOrder);
-app.get("/contact", contactController.getContact);
-app.post("/contact", contactController.postContact);
 
 /**
- *  Ordering pizza starter route
+ *  Ordering pizza routes
  */
 app.get("/order", orderController.newOrder);
 app.post("/save_order", orderController.saveOrder);
