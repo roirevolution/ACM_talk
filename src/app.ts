@@ -13,7 +13,7 @@ import { SESSION_SECRET } from "./util/secrets";
 
 // Get a datadog connection
 import metrics from "datadog-metrics";
-metrics.init({ prefix: "NSCU_talk." });
+metrics.init({ prefix: "ROI_pizza." });
 
 console.log("Starting app");
 metrics.increment("app.start");
