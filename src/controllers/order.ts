@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 
 // Get a datadog connection
 import metrics from "datadog-metrics";
-metrics.init({ prefix: "NSCU_talk." });
+metrics.init({ prefix: "ROI_pizza." });
 
 export {
   newOrder,
