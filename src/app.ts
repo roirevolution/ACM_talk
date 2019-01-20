@@ -53,7 +53,7 @@ app.use(
 /**
  * Primary app routes.
  */
-app.get("/", homeController.index);
+app.get("/", orderController.newOrder);
 app.get("/contact", contactController.getContact);
 app.post("/contact", contactController.postContact);
 
