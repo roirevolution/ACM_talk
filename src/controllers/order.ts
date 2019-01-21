@@ -60,6 +60,10 @@ const orders = new Map();
 // Record any metrics that can easily be regularly recorded.
 function record_cheap_metrics() {
   metrics.gauge("total_orders", orders.size);
+
+  // Residential Set Size (rss) is the node process's own judgement of its memory use.
+  // https://www.valentinog.com/blog/memory-usage-node-js/
+  metrics.gauge("process_memory", process.memoryUsage().rss);
 }
 
 // record cheap metrics every 5 seconds.
