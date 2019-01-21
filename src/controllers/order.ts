@@ -67,6 +67,7 @@ function validTopping(topping: string): boolean {
 // Add a new order to the list of orders
 function addToOrders(toppings: Array<string>, name = "Matt", address = "4401 Atlantic Ave") {
   metrics.histogram("toppings_per_order", toppings.length);
+  metrics.increment("orders", 1, toppings);
   const orderId = toppings.sort().join(",");
   orders.set(orderId, {name, address});
   console.log(orders);
