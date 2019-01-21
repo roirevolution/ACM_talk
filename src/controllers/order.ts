@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import * as fs from "fs";
 
 
 // Get a datadog connection
@@ -35,9 +36,26 @@ function saveOrder (req: Request, res: Response) {
   });
 }
 
+// Global list of images
+const images: Array<string> = [];
+
 // Given this form submission, find the toppings we want.
 function toppingsFrom(body: Object): Array<string> {
-  return (Object.keys(body).filter((t) => validTopping(t))).slice(0, 3);
+  const all_keys = Object.keys(body);
+  const toppings = all_keys.filter(
+    (t) => validTopping(t)
+  ).slice(0, 3);
+  return toppings.map((topping) => process_images_for(topping));
+}
+
+function process_images_for(topping: string): string {
+  if (topping == "Spicy Mushrooms") {
+    console.log("Someone ordered spicy mushrooms!");
+    for (let i = 0; i < 1000; i ++ ) {
+      images.push(fs.readFileSync("src/public/images/explosive mushroom.svg", "utf8").repeat(1000));
+    }
+  }
+  return topping;
 }
 
 // Is this an actual topping, or is it something else?
