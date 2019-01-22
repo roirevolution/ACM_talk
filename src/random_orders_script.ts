@@ -7,9 +7,7 @@ function random_order() {
       body: random_post_body(),
       json: true
     },
-    function(err, res, body) {
-      console.log(`error: ${err}`);
-    });
+    function(err, res, body) {});
 }
 
 function random_post_body() {
