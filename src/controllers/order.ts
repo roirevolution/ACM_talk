@@ -36,9 +36,6 @@ function saveOrder (req: Request, res: Response) {
   });
 }
 
-// Global list of images
-const images: Array<string> = [];
-
 // Given this form submission, find the toppings we want.
 function toppingsFrom(body: Object): Array<string> {
   const all_keys = Object.keys(body);
@@ -51,9 +48,6 @@ function toppingsFrom(body: Object): Array<string> {
 function process_images_for(topping: string): string {
   if (topping == "Spicy Mushrooms") {
     console.log("Someone ordered spicy mushrooms!");
-    for (let i = 0; i < 1000; i ++ ) {
-      images.push(fs.readFileSync("src/public/images/explosive mushroom.svg", "utf8").repeat(1000));
-    }
   }
   return topping;
 }
