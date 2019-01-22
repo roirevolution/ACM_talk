@@ -1,11 +1,15 @@
 import * as request from "request";
 
 function random_order() {
-  const post_body = JSON.stringify ({
-    url: "https://roi-pizza.herokuapp.com/save_order",
-    body: random_post_body()
-  });
-  request.post(post_body, function(err, res, body) {});
+  request.post(
+    {
+      url: "https://roi-pizza.herokuapp.com/save_order",
+      body: random_post_body(),
+      json: true
+    },
+    function(err, res, body) {
+      console.log(`error: ${err}`);
+    });
 }
 
 function random_post_body() {
