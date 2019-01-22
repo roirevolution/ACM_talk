@@ -6,6 +6,9 @@ import * as fs from "fs";
 import metrics from "datadog-metrics";
 metrics.init({ prefix: "ROI_pizza." });
 
+// Create the list of pizza orders. Only methods in this file can access it.
+const orders = new Map();
+
 export {
   newOrder,
   saveOrder
@@ -66,9 +69,6 @@ function addToOrders(toppings: Array<string>, name = "Matt", address = "4401 Atl
   orders.set(orderId, {name, address});
   console.log(orders);
 }
-
-// Create the list of pizza orders. Only methods in this file can access it.
-const orders = new Map();
 
 // Record any metrics that can easily be regularly recorded.
 function record_cheap_metrics() {
