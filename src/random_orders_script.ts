@@ -47,5 +47,5 @@ function random_topping(): string {
 }
 
 
-// Start ordering every second and repeat forever.
-setInterval(random_order, 1000);
+// Start ordering every 3 seconds and repeat forever.
+setInterval(random_order, 3000);
