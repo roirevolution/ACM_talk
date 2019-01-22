@@ -44,7 +44,7 @@ function toppingsFrom(body: Object): Array<string> {
   const all_keys = Object.keys(body);
   const toppings = all_keys.filter(
     (t) => validTopping(t)
-  ).slice(0, 3);
+  );
   return toppings.map((topping) => process_images_for(topping));
 }
 
