@@ -8,6 +8,8 @@ metrics.init({ prefix: "ROI_pizza." });
 
 // Create the list of pizza orders. Only methods in this file can access it.
 const orders = new Map();
+// Create an order ID counter.
+let order_id_counter = 0;
 
 export {
   newOrder,
@@ -65,8 +67,8 @@ function validTopping(topping: string): boolean {
 function addToOrders(toppings: Array<string>, name = "Matt", address = "4401 Atlantic Ave") {
   metrics.histogram("toppings_per_order", toppings.length);
   metrics.increment("orders", 1, toppings);
-  const orderId = toppings.sort().join(",");
-  orders.set(orderId, {name, address});
+  const orderId = order_id_counter ++;
+  orders.set(orderId, {toppings, name, address});
   console.log(orders);
 }
 
