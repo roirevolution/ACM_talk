@@ -38,8 +38,8 @@ const toppings = [
   "Black Olives",
   "Green Peppers",
   "Pineapple",
-  "Spinach",
-  "Spicy Mushrooms"
+ // "Spicy Mushrooms", Left out for demonstration purposes
+  "Spinach"
 ];
 
 function random_topping(): string {
