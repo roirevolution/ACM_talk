@@ -38,8 +38,8 @@ const toppings = [
   "Black Olives",
   "Green Peppers",
   "Pineapple",
-  "Spinach",
-  "Spicy Mushrooms"
+ // "Spicy Mushrooms", Left out for demonstration purposes
+  "Spinach"
 ];
 
 function random_topping(): string {
@@ -47,5 +47,5 @@ function random_topping(): string {
 }
 
 
-// Start ordering every 3 seconds and repeat forever.
-setInterval(random_order, 3000);
+// Start ordering every 10 seconds and repeat forever.
+setInterval(random_order, 10000);
