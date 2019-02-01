@@ -19,7 +19,9 @@ console.log("Starting app");
 metrics.increment("app.start");
 
 // Load environment variables from .env file, where API keys and passwords are configured
-dotenv.config({ path: ".env.example" });
+if (!process.env.production) {
+  dotenv.config({ path: ".env" });
+}
 
 // Controllers (route handlers)
 import * as orderController from "./controllers/order";
