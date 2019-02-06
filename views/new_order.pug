@@ -18,7 +18,7 @@ block content
     };
   h1 New order
 
-  form(action='/save_order' method='POST')
+  form(onsubmit="return handleSubmit()")
     fieldset()
     legend Available Toppings
       .grid-container
@@ -39,3 +39,6 @@ block content
     fieldset
       input(type="submit")
 
+  <script>
+    function handleSubmit() { console.log('hello'); }
+  </script>
