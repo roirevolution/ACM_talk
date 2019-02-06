@@ -2,7 +2,7 @@
 
 `master` intentionally has three bugs. These bugs are intended to be discovered during the demonstration portion.
 
-Becuase live coding is a dangerous game and the demonstration is interactive, the bugs can be discovered in any order. To make it easier for the presenters, this document will include the three bugs, how to identify them, and how to resolve them.
+Because live coding is a dangerous game and the demonstration is interactive, the bugs can be discovered in any order. To make it easier for the presenters, this document will include the three bugs, how to identify them, and how to resolve them.
 
 
 ## Bug List
