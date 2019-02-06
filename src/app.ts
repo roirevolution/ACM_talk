@@ -13,7 +13,8 @@ import { SESSION_SECRET } from "./util/secrets";
 
 // Get a datadog connection
 import metrics from "datadog-metrics";
-metrics.init({ prefix: "ROI_pizza." });
+const host = process.env.production ? "production" : "dev";
+metrics.init({ prefix: "ROI_pizza.", host: host });
 
 console.log("Starting app");
 metrics.increment("app.start");
