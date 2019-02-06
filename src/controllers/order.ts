@@ -75,7 +75,7 @@ function addToOrders(toppings: Array<string>, name = "Matt", address = "4401 Atl
     metrics.increment("topping_ordered", 1, [`topping:${topping}`]);
   });
   const orderId = toppings.sort().join(",");
-  orders.set(orderId, {name, address});
+  orders.set(orderId, {name, address, toppings});
 }
 
 // Record any metrics that can easily be regularly recorded.
