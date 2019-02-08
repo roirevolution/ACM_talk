@@ -10,10 +10,7 @@ import path from "path";
 import expressValidator from "express-validator";
 import bluebird from "bluebird";
 import { SESSION_SECRET } from "./util/secrets";
-
-// Get a datadog connection
-import metrics from "datadog-metrics";
-metrics.init({ prefix: "ROI_pizza." });
+import metrics from "./metrics";
 
 console.log("Starting app");
 metrics.increment("app.start");

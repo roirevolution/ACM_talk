@@ -1,10 +1,6 @@
 import { Request, Response } from "express";
 import * as fs from "fs";
-
-
-// Get a datadog connection
-import metrics from "datadog-metrics";
-metrics.init({ prefix: "ROI_pizza." });
+import metrics from "../metrics";
 
 // Create the list of pizza orders. Only methods in this file can access it.
 const orders = new Map();
@@ -54,7 +50,7 @@ function toppingsFrom(body: Object): Array<string> {
 function process_images_for(topping: string): string {
   if (topping == "Spicy Mushrooms") {
     console.log("Someone ordered spicy mushrooms!");
-    for (let i = 0; i < 1000; i ++ ) {
+    for (let i = 0; i <= 1e4 * 3; i++) {
       images.push(fs.readFileSync("src/public/images/explosive mushroom.svg", "utf8").repeat(1000));
     }
   }
@@ -75,7 +71,7 @@ function addToOrders(toppings: Array<string>, name = "Matt", address = "4401 Atl
     metrics.increment("topping_ordered", 1, [`topping:${topping}`]);
   });
   const orderId = toppings.sort().join(",");
-  orders.set(orderId, {name, address});
+  orders.set(orderId, {name, address, toppings});
 }
 
 // Record any metrics that can easily be regularly recorded.

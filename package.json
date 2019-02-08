@@ -27,7 +27,8 @@
     "serve-debug": "nodemon --inspect dist/server.js",
     "preorder": "npm run build",
     "order": "node dist/random_orders_script.js",
-    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run serve-debug\""
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run serve-debug\"",
+    "deploy": "git push heroku HEAD:master --force"
   },
   "dependencies": {
     "@types/async": "^2.0.45",

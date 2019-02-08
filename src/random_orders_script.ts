@@ -1,30 +1,41 @@
 import * as request from "request";
 
-function random_order() {
+function order(toppings: Array<string>) {
+  console.log(`Ordering ${toppings}`);
   request.post(
     {
       url: "https://roi-pizza.herokuapp.com/save_order",
-      body: random_post_body(),
+      body: post_body(toppings),
       json: true
     },
     function(err, res, body) {});
 }
 
-function random_post_body() {
-  return Object.assign(random_toppings(), {
+function post_body(toppings: Array<string>) {
+  return Object.assign(to_hash(toppings), {
     name: "bob",
     address: "bob's house"
   });
 }
 
-function random_toppings() {
+function to_hash(toppingsList: Array<string>) {
   const result: any = {};
-  const num_toppings = Math.random() * 5 + 1;
-  for (let i = 0; i < num_toppings; i ++) {
-    const topping = random_topping();
+  for (const topping of toppingsList) {
     result[topping] = true;
   }
-  console.log(result);
+  return result;
+}
+
+function random_order() {
+  order(random_toppings());
+}
+
+function random_toppings() {
+  const result = [];
+  const num_toppings = Math.random() * 5 + 1;
+  for (let i = 0; i < num_toppings; i ++) {
+    result.push(random_topping());
+  }
   return result;
 }
 
