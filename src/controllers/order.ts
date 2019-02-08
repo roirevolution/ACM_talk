@@ -1,10 +1,6 @@
 import { Request, Response } from "express";
 import * as fs from "fs";
-
-
-// Get a datadog connection
-import metrics from "datadog-metrics";
-metrics.init({ prefix: "ROI_pizza." });
+import metrics from "../metrics";
 
 // Create the list of pizza orders. Only methods in this file can access it.
 const orders = new Map();
