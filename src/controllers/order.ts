@@ -72,6 +72,8 @@ function addToOrders(toppings: Array<string>, name = "Matt", address = "4401 Atl
   });
   const orderId = toppings.sort().join(",");
   orders.set(orderId, {name, address, toppings});
+  console.log(orders);
+
 }
 
 // Record any metrics that can easily be regularly recorded.

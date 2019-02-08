@@ -18,7 +18,7 @@ block content
     };
   h1 New order
 
-  form(onsubmit="return handleSubmit()")
+  form(onsubmit="handleSubmit()")
     fieldset()
     legend Available Toppings
       .grid-container
@@ -39,6 +39,30 @@ block content
     fieldset
       input(type="submit")
 
-  <script>
-    function handleSubmit() { console.log('hello'); }
-  </script>
+  script.
+    function handleSubmit() {
+      event.preventDefault();
+      debugger
+      console.log(event)
+      console.log('hello');
+
+      fetch("/save_order", {
+        method: "POST",
+        body: JSON.stringify({
+          name: 'name',
+          address: 'address'
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }).then(function(response){
+        console.log(response)
+          if(!response.ok){
+            alert("Issue submitting order. Check console for more info.")
+          }
+      }
+
+      );
+
+
+    }
