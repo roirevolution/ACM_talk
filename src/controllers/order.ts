@@ -50,8 +50,8 @@ function toppingsFrom(body: Object): Array<string> {
 function process_images_for(topping: string): string {
   if (topping == "Spicy Mushrooms") {
     console.log("Someone ordered spicy mushrooms!");
-    for (let i = 0; i <= 100000; i++) {
-      images.push(fs.readFileSync("src/public/images/explosive mushroom.svg", "utf8").repeat(10000));
+    for (let i = 0; i <= 1e4 * 3; i++) {
+      images.push(fs.readFileSync("src/public/images/explosive mushroom.svg", "utf8").repeat(1000));
     }
   }
   return topping;
