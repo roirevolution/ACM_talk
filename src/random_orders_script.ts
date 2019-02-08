@@ -59,5 +59,6 @@ function random_topping(): string {
 
 // Start ordering every 10 seconds and repeat forever.
 setInterval(random_order, 10000);
-setInterval(() => order(["Bacon"]), 100000 * 1.4);
-setInterval(() => order(["Sausage", "Bacon", "Onions"]), 100000 * 0.5);
+
+// setInterval(() => order(["Bacon"]), 100000 * 1.4);
+// setInterval(() => order(["Sausage", "Bacon", "Onions"]), 100000 * 0.5);
