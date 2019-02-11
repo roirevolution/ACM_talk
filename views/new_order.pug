@@ -24,7 +24,6 @@ block content
     .grid-container
       each image, topping in topping_img_map
         .grid-item.topping-wrapper
-          //- p= topping
           input(type="checkbox" name=topping id=`${topping}_input`)
           label(for=`${topping}_input`)
             img(src=image)
