@@ -103,6 +103,7 @@ textarea {
   label{
     margin-bottom: 0;
     font-weight: 300;
+    font-size: 1.8rem;
   }
 
   img{
@@ -111,7 +112,7 @@ textarea {
   }
 
   .topping-selection{
-    padding: 25px 0 10px 0;
+    padding: 25px 0 10px 5px;
 
     &:after {
       content: ''
