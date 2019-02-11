@@ -23,11 +23,13 @@ block content
     legend Available Toppings
       .grid-container
         each image, topping in topping_img_map
-          .grid-item
+          .grid-item.topping-wrapper
             //- p= topping
             input(type="checkbox" name=topping id=`${topping}_input`)
             label(for=`${topping}_input`)
-              img(src=image+"" height=100 width=100)
+              img(src=image+"")
+              .topping-selection
+                = topping
     fieldset
     legend Delivery Information
       div
