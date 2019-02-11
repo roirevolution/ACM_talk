@@ -18,25 +18,28 @@ block content
     };
   h1 New order
 
-  form(action='/save_order' method='POST')
-    fieldset()
-    legend Available Toppings
-    .grid-container
-      each image, topping in topping_img_map
-        .grid-item.topping-wrapper
-          input(type="checkbox" name=topping id=`${topping}_input`)
-          label(for=`${topping}_input`)
-            img(src=image)
-            .topping-selection
-                = topping
-    fieldset
-    legend Delivery Information
-      div
-        label(for="name_input") Name for the order&nbsp;
-        input(type="text" name="name" id="name_input" required)
-      div
-        label(for="address_input") Delivery Address&nbsp;
-        input(type="text" name="address" id="address_input")
-    fieldset
-      input(type="submit")
+  .row
+    form(action='/save_order' method='POST')
+      .topping-list.col-sm-8.col-lg-10
+        fieldset()
+        legend Available Toppings
+        .grid-container
+          each image, topping in topping_img_map
+            .grid-item.topping-wrapper
+              input(type="checkbox" name=topping id=`${topping}_input`)
+              label(for=`${topping}_input`)
+                img(src=image)
+                .topping-selection
+                    = topping
+      .col-sm-4.col-lg-2.form-horizontal
+        fieldset
+        legend Delivery Information
+        div.form-group
+          label(for="name_input" class='col-sm-5') Name:
+          input(type="text" name="name" id="name_input" required)
+        div.form-group
+          label(for="address_input" class='col-sm-5') Delivery Address:
+          input(type="text" name="address" id="address_input")
+        fieldset
+          input(type="submit" class='btn btn-success btn-lg')
 
