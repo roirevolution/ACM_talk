@@ -16,6 +16,7 @@ html {
 body {
   padding-top: 60px;
   margin-bottom: 75px;
+  font-family: "PT Sans", "Lato", "Trebuchet MS", "Arial"
 }
 
 footer {
@@ -30,6 +31,10 @@ footer {
   }
 }
 
+// Custom Variable and overwrites
+// -------------------------
+$navbar-blue: #004366;
+
 // Input Fields
 // -------------------------
 
@@ -40,12 +45,39 @@ textarea {
 // Navbar
 // -------------------------
 
-.navbar-nav img {
+.navbar.nav img {
   width: 30px;
   height: 30px;
   margin: -15px 15px -15px;
 }
 
+.navbar-brand {
+  color: #fff;
+  font-size: 1.3em;
+
+  &:hover{
+    color: #fff;
+  }
+
+  img {
+    display: inline;
+    margin-top: -5px;
+    margin-right: 15px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.navbar.navbar-roi{
+  background-color: $navbar-blue;
+}
+
+nav .nav.navbar-nav li a{
+  color: #ccd9e0;
+  &:hover {
+    background-color: darken($navbar-blue, 5%);
+  }
+}
 // Alerts
 // -------------------------
 
@@ -118,4 +150,10 @@ textarea {
       content: ''
     }
   }
+}
+
+.topping-list{
+  max-height: 90vh;
+  overflow: scroll;
+  padding-bottom: 25px;
 }
