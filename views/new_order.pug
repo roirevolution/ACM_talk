@@ -21,13 +21,15 @@ block content
   form(action='/save_order' method='POST')
     fieldset()
     legend Available Toppings
-      .grid-container
-        each image, topping in topping_img_map
-          .grid-item
-            //- p= topping
-            input(type="checkbox" name=topping id=`${topping}_input`)
-            label(for=`${topping}_input`)
-              img(src=image+"" height=100 width=100)
+    .grid-container
+      each image, topping in topping_img_map
+        .grid-item.topping-wrapper
+          //- p= topping
+          input(type="checkbox" name=topping id=`${topping}_input`)
+          label(for=`${topping}_input`)
+            img(src=image)
+            .topping-selection
+                = topping
     fieldset
     legend Delivery Information
       div
